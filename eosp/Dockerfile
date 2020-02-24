@@ -1,7 +1,7 @@
 FROM eboraas/laravel:stretch
 MAINTAINER Martinek91
 
-RUN apt-get update && apt-get -y && apt-get -y autoremove && apt-get clean && rm -r /var/lib/apt/lists/*
+RUN apt-get update && apt-get -y
 
 RUN mkdir $HOME/eosp
 RUN cd $HOME/eosp
