@@ -1,7 +1,7 @@
 FROM eboraas/apache-php:stretch
 MAINTAINER Martinek91
 
-RUN apt-get update && apt-get upgrade && apt-get -y install git curl php-json php-mbstring php-zip php-dom php-xml php-gd php-opcache && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get upgrade -y && apt-get -y install git curl php-json php-mbstring php-zip php-dom php-xml php-gd php-opcache && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
