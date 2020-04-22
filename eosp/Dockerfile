@@ -13,11 +13,12 @@ RUN cd /var/www/laravel && composer install && mv .env.example .env && php artis
 RUN sed -i 's/DB_HOST=127.0.0.1/DB_HOST=localhost/g' /var/www/laravel/.env
 RUN chown -R www-data:www-data /var/www/laravel
 RUN chmod -R 755 /var/www/laravel
+RUN cd /var/www/laravel/ && php artisan migrate
+RUN cd /var/www/laravel/ && php artisan db:seed
+RUN cd /var/www/laravel/ && php artisan serve
 
 #RUN cd /var/www/laravel/ && php artisan down
 #RUN cd /var/www/laravel/ && php artisan config:clear
-#RUN cd /var/www/laravel/ && php artisan migrate
-#RUN cd /var/www/laravel/ && php artisan db:seed
 #RUN cd /var/www/laravel/ && php artisan queue:restart
 #RUN cd /var/www/laravel/ && php artisan cache:clear
 #RUN cd /var/www/laravel/ && php artisan up
