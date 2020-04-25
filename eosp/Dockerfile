@@ -1,7 +1,10 @@
-FROM eboraas/apache-php:stretch
+FROM eboraas/apache:stretch
 MAINTAINER Martinek91
 
-RUN apt-get update && apt-get upgrade -y && apt-get -y install git curl php-json php-mbstring php-zip php-dom php-xml php-gd php-opcache && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get upgrade -y && apt-get -y install git curl php7.1 php7.1-mysql libapache2-mod-php7.1 php7.1-json php7.1-mbstring php7.1-zip php7.1-dom php7.1-xml php7.1-gd php7.1-opcache && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN a2enmod mpm_prefork
+RUN a2enmod rewrite
 
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
