@@ -1,6 +1,7 @@
 FROM eboraas/apache:stretch
 MAINTAINER Martinek91
 
+RUN add-apt-repository ppa:ondrej/php
 RUN apt-get update && apt-get upgrade -y && apt-get -y install git curl php7.1 php7.1-mysql libapache2-mod-php7.1 php7.1-json php7.1-mbstring php7.1-zip php7.1-dom php7.1-xml php7.1-gd php7.1-opcache && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN a2enmod mpm_prefork
