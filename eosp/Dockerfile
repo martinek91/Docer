@@ -9,7 +9,8 @@ RUN chmod +x /usr/local/bin/composer
 
 RUN mkdir $HOME/eosp
 RUN cd $HOME/eosp && git clone https://git.wmi.amu.edu.pl/s421507/eOSP2.git master && mv * /var/www/laravel/
-RUN cd /var/www/laravel && composer install && mv .env.example .env && php artisan key:generate
+RUN cd /var/www/laravel && composer install 
+RUN cd /var/www/laravel && mv .env.example .env && php artisan key:generate
 RUN sed -i 's/DB_HOST=127.0.0.1/DB_HOST=localhost/g' /var/www/laravel/.env
 RUN chown -R www-data:www-data /var/www/laravel
 RUN chmod -R 755 /var/www/laravel
