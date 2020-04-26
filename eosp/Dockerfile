@@ -3,7 +3,7 @@ MAINTAINER Martinek91
 
 RUN apt-get update
 RUN apt-get install software-properties-common -y
-RUN RUN add-apt-repository ppa:ondrej/php
+RUN add-apt-repository ppa:ondrej/php
 RUN apt-get update
 RUN apt-get upgrade -y
 
