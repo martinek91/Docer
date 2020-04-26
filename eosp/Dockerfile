@@ -2,7 +2,7 @@ FROM ubuntu:latest
 MAINTAINER Martinek91
 
 RUN apt-get update
-RUN apt-get install install software-properties-common -y
+RUN apt-get install software-properties-common -y
 
 #RUN apt-get update
 #RUN apt-get install software-properties-common -y
