@@ -7,11 +7,33 @@ RUN add-apt-repository ppa:ondrej/php
 RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get -y install apache2
+RUN apt-get -y install curl
+RUN apt-get -y install git
+RUN apt-get -y install libapache2-mod-php7.4
+#RUN apt-get -y install mysql-server
 RUN apt-get -y install php7.4
+RUN apt-get -y install php7.4-cli
+RUN apt-get -y install php7.4-dom
+RUN apt-get -y install php7.4-gd
+RUN apt-get -y install php7.4-imagick
+RUN apt-get -y install php7.4-json
+RUN apt-get -y install php7.4-mbstring
+RUN apt-get -y install php7.4-mcrypt
+RUN apt-get -y install php7.4-mysql
+RUN apt-get -y install php7.4-recode
+RUN apt-get -y install php7.4-tidy
+RUN apt-get -y install php7.4-xml
+RUN apt-get -y install php7.4-zip
+RUN apt-get -y install php7.4-xmlrpc
+RUN apt-get -y install unzip
+RUN apt-get -y install zip
 
 RUN apt-get -y autoremove
 RUN apt-get clean 
 RUN rm -rf /var/lib/apt/lists/*
+
+RUN a2enmod mpm_prefork
+RUN a2enmod rewrite
 
 #RUN apt-get update
 #RUN apt-get install software-properties-common -y
