@@ -35,9 +35,9 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN a2enmod mpm_prefork
 RUN a2enmod rewrite
 
-RUN sed -i -e '/^memory_limit*$/memory_limit = 256M/' /etc/php/7.4/apache2/php.ini
-RUN sed -i -e '/^upload_max_filesize*$/upload_max_filesize = 64M/' /etc/php/7.4/apache2/php.ini
-RUN sed -i -e '/^;cgi.fix_pathinfo*$/;cgi.fix_pathinfo=0/' /etc/php/7.4/apache2/php.ini
+RUN sed -e '/^memory_limit/memory_limit = 256M/' /etc/php/7.4/apache2/php.ini
+RUN sed -e '/^upload_max_filesize/upload_max_filesize = 64M/' /etc/php/7.4/apache2/php.ini
+RUN sed -e '/^;cgi.fix_pathinfo/;cgi.fix_pathinfo=0/' /etc/php/7.4/apache2/php.ini
 RUN cat /etc/php/7.4/apache2/php.ini
 
 #RUN apt-get update
