@@ -35,6 +35,8 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN a2enmod mpm_prefork
 RUN a2enmod rewrite
 
+RUN cat /etc/php/7.4/apache2/php.ini
+
 #RUN apt-get update
 #RUN apt-get install software-properties-common -y
 #RUN add-apt-repository ppa:ondrej/php
