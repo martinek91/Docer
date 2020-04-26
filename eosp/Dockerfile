@@ -1,4 +1,4 @@
-FROM ubuntu:stretch
+FROM ubuntu:latest
 MAINTAINER Martinek91
 
 RUN apt-get update
