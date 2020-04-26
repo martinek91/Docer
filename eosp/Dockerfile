@@ -1,16 +1,16 @@
 FROM ubuntu:latest
 MAINTAINER Martinek91
 
-RUN apt update
-RUN apt -y install software-properties-common
+RUN apt-get update
+RUN apt-get -y install software-properties-common
 RUN add-apt-repository ppa:ondrej/php
-RUN apt update
-RUN apt -y upgrade
-RUN apt -y install apache2
-RUN apt -y install php7.1
+RUN apt-get update
+RUN apt-get -y upgrade
+RUN apt-get -y install apache2
+RUN apt-get -y install php7.4
 
-RUN apt -y autoremove
-RUN apt clean 
+RUN apt-get -y autoremove
+RUN apt-get clean 
 RUN rm -rf /var/lib/apt/lists/*
 
 #RUN apt-get update
