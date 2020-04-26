@@ -18,7 +18,7 @@ RUN apt-get -y install php7.4-gd
 RUN apt-get -y install php7.4-imagick
 RUN apt-get -y install php7.4-json
 RUN apt-get -y install php7.4-mbstring
-RUN apt-get -y install php7.4-mcrypt
+#RUN apt-get -y install php7.4-mcrypt
 RUN apt-get -y install php7.4-mysql
 RUN apt-get -y install php7.4-recode
 RUN apt-get -y install php7.4-tidy
