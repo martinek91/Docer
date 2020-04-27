@@ -1,6 +1,7 @@
 FROM ubuntu:latest
 MAINTAINER Martinek91
 
+# install all
 RUN apt-get update
 RUN apt-get -y install software-properties-common
 RUN add-apt-repository ppa:ondrej/php
@@ -28,17 +29,25 @@ RUN apt-get -y install php7.4-xmlrpc
 RUN apt-get -y install unzip
 RUN apt-get -y install zip
 
+# clean up
 RUN apt-get -y autoremove
 RUN apt-get clean 
 RUN rm -rf /var/lib/apt/lists/*
 
+# run apache2 mods
 RUN a2enmod mpm_prefork
 RUN a2enmod rewrite
 
+# PHP config
 RUN sed -i -e 's/^memory_limit = 128M/memory_limit = 256M/' /etc/php/7.4/apache2/php.ini
 RUN sed -i -e 's/^upload_max_filesize = 2M/upload_max_filesize = 64M/' /etc/php/7.4/apache2/php.ini
 RUN sed -i -e 's/^;cgi.fix_pathinfo=1/;cgi.fix_pathinfo=0/' /etc/php/7.4/apache2/php.ini
 #RUN cat /etc/php/7.4/apache2/php.ini
+
+# Download & install Composer
+RUN curl -sS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/local/bin/composer
+RUN chmod +x /usr/local/bin/composer
 
 #RUN apt-get update
 #RUN apt-get install software-properties-common -y
