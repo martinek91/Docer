@@ -49,6 +49,10 @@ RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 RUN chmod +x /usr/local/bin/composer
 
+# Download & run Laravel project
+RUN cd /var/www && git clone https://git.wmi.amu.edu.pl/s421507/eOSP2.git
+RUN cd /var/www/eOSP2 && composer install
+
 #RUN apt-get update
 #RUN apt-get install software-properties-common -y
 #RUN add-apt-repository ppa:ondrej/php
