@@ -10,7 +10,7 @@ RUN apt-get -y install apache2
 RUN apt-get -y install curl
 RUN apt-get -y install git
 RUN apt-get -y install libapache2-mod-php7.4
-#RUN apt-get -y install mysql-server
+RUN apt-get -y install mysql-server
 RUN apt-get -y install php7.4
 RUN apt-get -y install php7.4-cli
 RUN apt-get -y install php7.4-dom
@@ -38,7 +38,7 @@ RUN a2enmod rewrite
 RUN sed -i -e 's/^memory_limit = 128M/memory_limit = 256M/' /etc/php/7.4/apache2/php.ini
 RUN sed -i -e 's/^upload_max_filesize = 2M/upload_max_filesize = 64M/' /etc/php/7.4/apache2/php.ini
 RUN sed -i -e 's/^;cgi.fix_pathinfo=1/;cgi.fix_pathinfo=0/' /etc/php/7.4/apache2/php.ini
-RUN cat /etc/php/7.4/apache2/php.ini
+#RUN cat /etc/php/7.4/apache2/php.ini
 
 #RUN apt-get update
 #RUN apt-get install software-properties-common -y
