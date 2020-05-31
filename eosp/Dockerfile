@@ -59,7 +59,7 @@ RUN cd /var/www/eOSP2 && php artisan key:generate
 
 # Create database
 #RUN mysql -u root -p -h localhost -e "CREATE DATABASE alewandowski_inz;"
-RUN sudo mysql -e "CREATE DATABASE alewandowski_inz;"
+RUN mysql -u root -e "CREATE DATABASE alewandowski_inz;"
 
 # Change permissions
 RUN chown -R www-data:www-data /var/www/eOSP2
