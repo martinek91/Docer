@@ -53,6 +53,15 @@ RUN chmod +x /usr/local/bin/composer
 RUN cd /var/www && git clone https://git.wmi.amu.edu.pl/s421507/eOSP2.git
 RUN cd /var/www/eOSP2 && composer install
 
+# Generate key
+RUN cd /var/www/eOSP2 && mv .env.example .env
+RUN cd /var/www/eOSP2 && php artisan key:generate
+
+# Change permissions
+RUN chown -R www-data:www-data /var/www/eOSP2/laravel-5-boilerplate
+RUN chmod -R 755 /var/www/eOSP2
+RUN chmod -R 777 /var/www/eOSP2/laravel-5-boilerplate/storage
+
 #RUN apt-get update
 #RUN apt-get install software-properties-common -y
 #RUN add-apt-repository ppa:ondrej/php
