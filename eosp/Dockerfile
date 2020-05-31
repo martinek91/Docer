@@ -34,6 +34,9 @@ RUN apt-get -y autoremove
 RUN apt-get clean 
 RUN rm -rf /var/lib/apt/lists/*
 
+# Create database
+RUN mysql -h localhost -uroot -p -e "CREATE DATABASE alewandowski_inz;"
+
 # run apache2 mods
 RUN a2enmod mpm_prefork
 RUN a2enmod rewrite
@@ -56,9 +59,6 @@ RUN cd /var/www/eOSP2 && composer install
 # Generate key
 RUN cd /var/www/eOSP2 && mv .env.example .env
 RUN cd /var/www/eOSP2 && php artisan key:generate
-
-# Create database
-RUN mysql -h localhost -uroot -e "CREATE DATABASE alewandowski_inz;"
 
 # Change permissions
 RUN chown -R www-data:www-data /var/www/eOSP2
