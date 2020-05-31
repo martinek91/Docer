@@ -58,7 +58,7 @@ RUN cd /var/www/eOSP2 && mv .env.example .env
 RUN cd /var/www/eOSP2 && php artisan key:generate
 
 # Create database
-RUN mysql -u root -p -e "CREATE DATABASE alewandowski_inz;"
+RUN mysql -u root -p -h locahost -e "CREATE DATABASE alewandowski_inz;"
 
 # Change permissions
 RUN chown -R www-data:www-data /var/www/eOSP2
