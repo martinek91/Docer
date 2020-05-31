@@ -35,6 +35,7 @@ RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 
 # Create database
+RUN mkdir /nonexistent
 RUN /etc/init.d/mysql start
 RUN /etc/init.d/mysql status
 RUN mysql -h localhost -uroot -p -e "CREATE DATABASE alewandowski_inz;"
